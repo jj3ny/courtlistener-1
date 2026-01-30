@@ -14,7 +14,6 @@ from rest_framework.response import Response
 from cl.search.factories import (
     CourtFactory,
     OpinionClusterWithChildrenAndParentsFactory,
-    OpinionClusterWithParentsFactory,
     OpinionsCitedWithParentsFactory,
 )
 from cl.search.models import OpinionCluster
@@ -339,7 +338,8 @@ class APIVisualizationTestCase(APITestCase):
             res["cluster_end"],
             f"http://testserver{
                 reverse(
-                    'opinioncluster-detail', kwargs={'version': 'v3', 'pk': self.cluster_debbas.pk}
+                    'opinioncluster-detail',
+                    kwargs={'version': 'v3', 'pk': self.cluster_debbas.pk},
                 )
             }",
         )
